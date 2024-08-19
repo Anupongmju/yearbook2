@@ -11,7 +11,7 @@ body {
     align-items: center; /* จัดไอเท็มในแนวตั้งให้ตรงกลาง */
     background-color: #000;
     color: #fff;
-    height: 100px;
+    height: 120px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -23,7 +23,7 @@ body {
 .top-bar .main-text {
     margin: 0; /* ลบ margin ของ p เพื่อให้ข้อความอยู่ในบรรทัดเดียวกัน */
     font-size: 40px; /* ขนาดตัวหนังสือหลัก */
-    line-height: 2;
+    line-height: 1;
 }
 .top-bar .sub-text {
     font-size: 14px; /* ขนาดตัวหนังสือเล็กลง */
@@ -117,4 +117,63 @@ body {
 }
 .about div{
     margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+
+    .text-container {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .right-container {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .right-container .nav-item,
+    .right-container .search-bar {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .right-container .logo {
+        flex: 0 1 auto;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    .search-bar input {
+        width: 150px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+    .container {
+        flex-direction: column; /* เปลี่ยนแนวการจัดเรียงเป็นแนวตั้ง */
+        margin-top: 120px; /* ปรับระยะห่างด้านบนให้เหมาะสม */
+    }
+
+    .profile img {
+        height: 300px; /* ปรับขนาดของรูปให้เล็กลงในมือถือ */
+    }
+
+    .info {
+        font-size: 16px; /* ลดขนาดฟอนต์ให้เล็กลงในมือถือ */
+    }
+
+    .info-item {
+        margin-bottom: 6px; /* ลดระยะห่างระหว่างบรรทัดในมือถือ */
+    }
 }

@@ -12,7 +12,7 @@ body {
     align-items: center; /* จัดไอเท็มในแนวตั้งให้ตรงกลาง */
     background-color: #000;
     color: #fff;
-    height: 100px;
+    height: 110px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -25,7 +25,7 @@ body {
 .top-bar .main-text {
     margin: 0; /* ลบ margin ของ p เพื่อให้ข้อความอยู่ในบรรทัดเดียวกัน */
     font-size: 40px; /* ขนาดตัวหนังสือหลัก */
-    line-height: 2;
+    line-height: 1;
 }
 
 .top-bar .sub-text {
@@ -53,31 +53,31 @@ body {
 }
 
 .image-container {
-    display: flex;
-    justify-content: center; /* จัดแนวนอนให้ตรงกลาง */
-    align-items: center; /* จัดแนวตั้งให้ตรงกลาง (หากมีความสูง) */
-    margin-top: 150px; /* ระยะห่างจากเนื้อหาด้านบน */
+    margin-top: 150px; /* ระยะห่างจากด้านบน */
+    height: auto; /* ปรับขนาดให้เหมาะสม */
 }
 
 .image-container img {
-    max-width: 1000px; /* ให้รูปภาพไม่ใหญ่เกินขนาดของคอนเทนเนอร์ */
-    height: auto; /* รักษาสัดส่วนของรูปภาพ */
-    /* border: 5px solid white;
-    border-radius: 10px;
-    display: block; */
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
-.dropdown{
-    margin:20px 0 ;
+.dropdown {
+    margin: 20px 0;
     text-align: center;
     font-size: 25px;
     color: #fff;
+    position: relative; /* ปรับตำแหน่งของ dropdown */
+    z-index: 2; /* ให้อยู่เหนือ image-container */
 }
-.dropdown label{
+
+.dropdown label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
-select{
+
+select {
     width: 200px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -89,7 +89,8 @@ select{
     font-family: 'Noteworthy', sans-serif;
     font-weight: bold;
 }
-select:focus{
+
+select:focus {
     outline: none;
     border-color: #007bff;
 }
@@ -111,9 +112,8 @@ select:focus{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px; /* เพิ่มพื้นที่รอบๆ ปุ่ม */
-    margin: 0;
-    /* background-color: #f0f0f0; */
+    padding: 10px; /* ลด padding รอบๆ ปุ่ม */
+    margin: 10px 0; /* ลด margin ของ button-container */
     text-align: center;
 }
 
@@ -123,11 +123,12 @@ select:focus{
     color: #fff; /* สีของข้อความในปุ่ม */
     border: none; /* ไม่มีกรอบ */
     border-radius: 5px; /* มุมโค้งมนของปุ่ม */
-    padding: 10px 20px; /* ขนาดของปุ่ม */
+    padding: 8px 16px; /* ขนาดของปุ่ม */
     font-size: 16px; /* ขนาดของตัวหนังสือ */
     text-decoration: none; /* ไม่มีขีดเส้นใต้ */
     cursor: pointer; /* เปลี่ยน cursor เป็นมือเมื่อ hover */
     transition: background-color 0.3s ease; /* การเปลี่ยนสีพื้นหลังนุ่มนวล */
+    margin: 0 5px; /* เพิ่มระยะห่างระหว่างปุ่ม */
 }
 
 .confirm-button:hover {
@@ -187,4 +188,47 @@ select:focus{
     z-index: 1000;
     box-sizing: border-box;
     font-family: 'Noteworthy', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+
+    .text-container {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .right-container {
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: space-between; /* Adjust to space items evenly */
+        margin-left: 0;
+        gap: 10px;
+        padding: 0 10px; /* Add padding to left and right for more spacing */
+    }
+
+    .right-container .nav-item, 
+    .right-container .search-bar {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .right-container .logo {
+        flex: 0 1 auto; /* Prevent the logo from stretching */
+        text-align: right;
+        padding-right: 10px; /* Add space to the right of the logo */
+    }
+
+    .search-bar input {
+        width: 150px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
 }
